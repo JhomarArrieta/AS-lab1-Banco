@@ -59,6 +59,7 @@ public class TransactionService {
         savedTransaction.setSenderAccountNumber(transaction.getSenderAccountNumber());
         savedTransaction.setReceiverAccountNumber(transaction.getReceiverAccountNumber());
         savedTransaction.setAmount(transaction.getAmount());
+        savedTransaction.setTransactionDate(transaction.getTransactionDate());
         return savedTransaction;
 
     }
@@ -71,6 +72,7 @@ public class TransactionService {
             dto.setSenderAccountNumber(transaction.getSenderAccountNumber());
             dto.setReceiverAccountNumber(transaction.getReceiverAccountNumber());
             dto.setAmount(transaction.getAmount());
+            dto.setTransactionDate(transaction.getTransactionDate());
             return dto;
         }).collect(Collectors.toList());
     }

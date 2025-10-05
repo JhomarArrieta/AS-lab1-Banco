@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // ----------------------------------------------------
+    // AJUSTES DEL AMBIENTE Y COMPILACIÓN (Vite/React)
+    // ----------------------------------------------------
+    "target": "ES2020",
+    "module": "ESNext",
+
+    // ✨ CORRECCIÓN CLAVE: Esto soluciona los problemas de importación (como el CSS).
+    "moduleResolution": "bundler",
+
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx", // Permite la sintaxis JSX en archivos .tsx
+    "isolatedModules": true, // Necesario para herramientas modernas
+    "noEmit": true, // Le dice a TS que Vite se encargará de generar el JS
+
+    // ----------------------------------------------------
+    // CONSISTENCIA Y CALIDAD
+    // ----------------------------------------------------
+    "strict": true, // Habilita las reglas de tipado más estrictas
+    "skipLibCheck": true, // Ignorar errores en librerías de terceros
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Opcionales, pero buenos para la calidad del código
+    "verbatimModuleSyntax": true,
+    "noUncheckedSideEffectImports": true
+  },
+
+  // Archivos a incluir en la compilación de TypeScript
+  "include": ["src"]
+
+  // Si tu proyecto Vite generó un tsconfig.node.json, lo incluyes aquí:
+  // "references": [{ "path": "./tsconfig.node.json" }]
+}

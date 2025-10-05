@@ -1,0 +1,252 @@
+/* Estilos Globales para Resetear y Tipografía */
+
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; 
+    color: #343a40;
+    overflow-y: hidden;
+}
+
+#root {
+    display: flex;
+    height: 100vh; 
+    width: 100%;
+}
+
+/* --- ELEMENTO CARD BASE (EL CUADRITO FLOTANTE) --- */
+.card-base {
+    background-color: #ffffff;
+    border-radius: 16px; /* Curvas pronunciadas */
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave y flotante */
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+/* -------------------------------------------
+   SIDEBAR / Navegación
+   ------------------------------------------- */
+nav {
+    width: 320px;
+    flex-shrink: 0;
+    padding: 20px;
+    height: 100%;
+}
+
+.sidebar-card {
+    background-color: #ffffff;
+    border-radius: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    padding: 20px 0; 
+    max-width: 280px; 
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* ✨ CAMBIO CLAVE: Hacemos que la tarjeta ocupe el espacio restante */
+    height: 100%; 
+    /* ------------------------------------------------------------- */
+    /* Usamos flex para que el título y los enlaces estén arriba, y el espacio abajo. */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-card h3 {
+    padding: 0 20px;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.sidebar-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-card li {
+    margin: 8px 0; /* Espaciado vertical entre elementos */
+}
+
+/* Estilo del enlace (Link) para el efecto de botón/widget */
+.sidebar-card a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 10px; /* Margen horizontal para centrar el 'botón' dentro de la tarjeta */
+    text-decoration: none;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+    border-radius: 12px; /* Curvas en el hover/active del enlace */
+}
+
+.sidebar-card a:hover {
+    background-color: #f0f2f5;
+    color: #5d50ff; /* Color de acento */
+}
+
+.sidebar-card h3 {
+    text-align: center; /* Centramos el título */
+    padding: 0 20px;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    font-size: 1.6em; /* Un poco más grande para ser un título */
+    font-weight: 700;
+}
+
+/* Estilo para el Separador */
+.sidebar-separator {
+    border: none;
+    height: 1px;
+    background-color: #e9ecef; /* Un gris muy claro */
+    margin: 15px 20px 25px 20px; /* Separación y margen horizontal */
+}
+
+
+
+
+/* -------------------------------------------
+   CONTENIDO PRINCIPAL
+   ------------------------------------------- */
+main {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+main h2 {
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    font-size: 1.8em;
+}
+
+/* -------------------------------------------
+   ESTILO DE TABLAS DENTRO DE CARDS
+   ------------------------------------------- */
+.card-table-container {
+    /* Asegura que haya un buen margen interno dentro de la tarjeta */
+    padding: 20px 30px; 
+}
+
+.card-table-container table {
+    /* ✨ CAMBIO CLAVE 1: Usar 'separate' para permitir espaciado entre filas */
+    border-collapse: separate; 
+    /* ✨ CAMBIO CLAVE 2: Añadir espaciado vertical entre filas */
+    border-spacing: 0 12px; 
+    
+    width: 100%;
+    margin-top: 10px;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Encabezados y Celdas de la Tabla (th, td) */
+.card-table-container th, .card-table-container td {
+    /* Remueve el padding vertical original (12px 0) */
+    text-align: left;
+    /* La línea divisoria la usaremos solo para los títulos, no para las filas */
+    border-bottom: none; 
+}
+
+.card-table-container th {
+    background-color: transparent;
+    color: #868e96; /* Gris suave para títulos */
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85em; /* Títulos un poco más pequeños */
+    
+    /* ✨ CAMBIO CLAVE 3: Añadir padding horizontal para separar los títulos */
+    padding: 0 10px 15px 10px; 
+    border-bottom: 1px solid #e9ecef; /* Línea suave bajo los títulos */
+    white-space: nowrap; /* Evita que los títulos largos como N° CUENTA se rompan */
+}
+
+.card-table-container td {
+    /* ✨ CAMBIO CLAVE 4: Añadir padding horizontal y vertical a las celdas de datos */
+    padding: 8px 10px; 
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+/* Damos un color a las filas para que se vean más como líneas de registro */
+.card-table-container tbody tr {
+    border-bottom: 1px solid #f8f9fa; 
+    transition: background-color 0.2s;
+}
+
+/* Quita el borde inferior de la última fila */
+.card-table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* -------------------------------------------
+   ESTILO DE BOTONES Y FORMULARIOS
+   ------------------------------------------- */
+input[type="text"], input[type="number"] {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Curvas en los campos */
+    margin-top: 5px;
+    width: 100%; 
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px; /* Curvas en los botones */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de Submit (Púrpura) */
+button[type="submit"] {
+    background-color: #5d50ff;
+    color: white;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background-color: #4b40d8;
+    box-shadow: 0 4px 8px rgba(93, 80, 255, 0.4);
+}
+
+button:disabled {
+    background-color: #a0a0ff;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* -------------------------------------------
+   ESTILO DE ENLACE ACTIVO (Active Link)
+   ------------------------------------------- */
+
+/* Estilo por defecto del enlace (repetido para referencia, ya debe estar en tu CSS) */
+.sidebar-card a {
+    /* ... otros estilos ... */
+    font-weight: 500;
+}
+
+/* ESTILO DEL BOTÓN ACTIVO */
+.active-link {
+    background-color: #5d50ff; /* Fondo sólido del color primario (púrpura) */
+    color: white !important; /* Texto blanco para contrastar */
+    font-weight: 700 !important; /* Negrita para destacarlo */
+    box-shadow: 0 4px 10px rgba(93, 80, 255, 0.4); /* Sombra para que se vea flotante */
+}
+
+/* Evitar que el hover cambie el color del texto del enlace activo */
+.active-link:hover {
+    background-color: #4b40d8 !important; /* Un tono de púrpura un poco más oscuro */
+    color: white !important; /* Asegura que el texto siga siendo blanco */
+}
