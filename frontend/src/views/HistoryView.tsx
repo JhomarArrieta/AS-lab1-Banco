@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getAccountHistory } from "../api";
-import { type TransactionDTO } from "../interfaces";
+import { type TransactionDTO } from "../types/interfaces";
 
 const HistoryView: React.FC = () => {
   const [accountNumber, setAccountNumber] = useState<string>("");
@@ -50,7 +50,6 @@ const HistoryView: React.FC = () => {
     <div>
       <h2>Histórico de Transacciones</h2>
 
-      {/* 1. Formulario de Búsqueda: Usando el estilo moderno de inputs y botones */}
       <form
         onSubmit={handleConsult}
         className="card-base"
@@ -58,8 +57,8 @@ const HistoryView: React.FC = () => {
           display: "flex",
           gap: "10px",
           marginBottom: "20px",
-          maxWidth: "550px", // Aumentamos el ancho para que se vea mejor
-          padding: "20px", // Redefinimos el padding ya que 'card-base' lo tiene
+          maxWidth: "550px", 
+          padding: "20px", 
         }}
       >
         <input
@@ -69,13 +68,11 @@ const HistoryView: React.FC = () => {
           onChange={(e) => setAccountNumber(e.target.value)}
           required
           disabled={loading}
-          // El input ya toma el estilo global de App.css
           style={{ flexGrow: 1 }}
         />
         <button
           type="submit"
           disabled={loading || !accountNumber}
-          // El botón ahora usa los estilos globales de App.css (púrpura con curvas)
           style={{ padding: "12px 20px", minWidth: "120px" }}
         >
           {loading ? "Consultando..." : "Consultar"}
@@ -86,12 +83,10 @@ const HistoryView: React.FC = () => {
         <p style={{ color: "red", fontWeight: "bold" }}>Error: {error}</p>
       )}
 
-      {/* 2. Resultados: La tabla envuelta en una tarjeta con estilos limpios */}
       {transactions.length > 0 ? (
         <div className="card-base card-table-container">
           <table style={{ width: "100%" }}>
             <thead>
-              {/* Quitamos los estilos en línea, ahora vienen de App.css */}
               <tr>
                 <th>Fecha</th>
                 <th>Remitente</th>
@@ -126,7 +121,6 @@ const HistoryView: React.FC = () => {
           </table>
         </div>
       ) : (
-        // Mensaje de no resultados, envuelto en una pequeña tarjeta si se consultó
         consultedAccount &&
         !loading && (
           <div className="card-base" style={{ padding: "20px" }}>

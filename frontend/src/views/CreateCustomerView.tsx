@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createCustomer } from "../api";
-import { type CustomerDTO } from "../interfaces";
+import { type CustomerDTO } from "../types/interfaces";
 
 // Tipo para el formulario inicial (sin el 'id' generado por el backend)
 type NewCustomerForm = Omit<CustomerDTO, "id" | "accountNumber"> & {
@@ -83,7 +83,8 @@ const CreateCustomerView: React.FC = () => {
                 borderRadius: "8px", // Curvas más grandes para el mensaje
                 color: "white",
                 fontWeight: "bold",
-                backgroundColor: message.type === "success" ? "#28a745" : "#dc3545",
+                backgroundColor:
+                  message.type === "success" ? "#28a745" : "#dc3545",
               }}
             >
               {message.text}
@@ -153,7 +154,7 @@ const CreateCustomerView: React.FC = () => {
         </form>
       </div>
     </div>
-);
+  );
 };
 
 export default CreateCustomerView;

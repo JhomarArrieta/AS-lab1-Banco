@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { performTransfer } from "../api";
-import { type TransferRequest } from "../interfaces";
+import { type TransferRequest } from "../types/interfaces";
 
 const initialForm: TransferRequest = {
   senderAccountNumber: "",
@@ -71,8 +71,6 @@ const TransferView: React.FC = () => {
   return (
     <div>
       <h2>Realizar Transferencia</h2>
-
-      {/* ✨ Aplicamos la clase de tarjeta 'card-base' y limitamos el ancho del contenedor ✨ */}
       <div className="card-base" style={{ maxWidth: "500px" }}>
         <form
           onSubmit={handleSubmit}
@@ -108,7 +106,6 @@ const TransferView: React.FC = () => {
               onChange={handleChange}
               required
               disabled={loading}
-              // Ya no necesitamos style en línea, App.css lo maneja
             />
           </label>
 
@@ -122,7 +119,6 @@ const TransferView: React.FC = () => {
               onChange={handleChange}
               required
               disabled={loading}
-              // Ya no necesitamos style en línea
             />
           </label>
 
@@ -138,7 +134,6 @@ const TransferView: React.FC = () => {
               step="0.01"
               required
               disabled={loading}
-              // Ya no necesitamos style en línea
             />
           </label>
 
@@ -151,8 +146,6 @@ const TransferView: React.FC = () => {
               !formData.senderAccountNumber ||
               !formData.receiverAccountNumber
             }
-            // Los estilos del botón (color, padding, cursor, etc.) ahora son manejados
-            // por las clases globales en App.css (botones con fondo #5d50ff y curvas)
           >
             {loading ? "Procesando..." : "Confirmar Transferencia"}
           </button>
